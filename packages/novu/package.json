@@ -1,0 +1,22 @@
+{
+	"name": "@ever-gauzy-ai/novu",
+	"version": "0.1.0",
+	"description": "Novu notifications for Gauzy AI: typed workflow triggers for match alerts, application status, automation-task outcomes, daily digests and crawl summaries.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/novu"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"novu",
+		"notifications",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/tenant-api-key",
+	"version": "0.1.0",
+	"description": "Tenant API keys of Gauzy AI: the machine credential of a tenant and its optional OpenAI credentials, readable and updatable over GraphQL.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/tenant-api-key"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"tenant",
+		"api-key",
+		"graphql",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

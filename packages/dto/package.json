@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/dto",
+	"version": "0.1.0",
+	"description": "GraphQL object/input types (nestjs-query DTOs) and REST body classes of Gauzy AI, with the tenant authorizer and hooks on every tenant-scoped type.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/dto"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"dto",
+		"graphql",
+		"nestjs-query",
+		"swagger"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

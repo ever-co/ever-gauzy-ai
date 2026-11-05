@@ -1,0 +1,24 @@
+{
+	"name": "@ever-gauzy-ai/auth",
+	"version": "0.1.0",
+	"description": "Authentication and authorization for Gauzy AI: tenant API keys, Ever ID (OpenID Connect) tokens, legacy tenant JWTs, the service token, guards and GraphQL WebSocket auth.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/auth"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"auth",
+		"openid-connect",
+		"api-key",
+		"guards",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

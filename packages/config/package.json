@@ -1,0 +1,24 @@
+{
+	"name": "@ever-gauzy-ai/config",
+	"version": "0.1.0",
+	"description": "Configuration of Gauzy AI: typed environment access, TypeORM connection options, entity list, PostgreSQL migrations and the shared periodic-job schedules.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/config"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"config",
+		"typeorm",
+		"migrations",
+		"schedules",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

@@ -1,0 +1,20 @@
+{
+	"name": "@ever-gauzy-ai/job-providers",
+	"version": "0.1.0",
+	"description": "Job sources of Gauzy AI: the IJobProvider contract and the built-in providers for the Ever Jobs API, Upwork's official API and the local catalog.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/job-providers"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"job-providers",
+		"jobs",
+		"plugins"
+	]
+}

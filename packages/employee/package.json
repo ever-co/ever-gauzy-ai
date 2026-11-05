@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/employee",
+	"version": "0.1.0",
+	"description": "Employees of Gauzy AI: tenant-scoped shadow records with the profile fields used by AI scoring, REST/GraphQL CRUD, the profile mutation and seed data.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/employee"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"employees",
+		"profiles",
+		"graphql",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

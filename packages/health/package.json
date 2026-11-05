@@ -1,0 +1,22 @@
+{
+	"name": "@ever-gauzy-ai/health",
+	"version": "0.1.0",
+	"description": "Health check of Gauzy AI: database probe with a deadline, uptime and version, as GET /api/health and the healthCheck GraphQL query.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/health"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"health",
+		"probe",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

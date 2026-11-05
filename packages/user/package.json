@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/user",
+	"version": "0.1.0",
+	"description": "Users of Gauzy AI: tenant-scoped shadow records with the lookups authentication needs (Ever ID by e-mail, legacy JWT by external ids), REST/GraphQL CRUD.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/user"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"users",
+		"auth",
+		"graphql",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

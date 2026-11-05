@@ -1,0 +1,113 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"declaration": true,
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"target": "ES2023",
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"outDir": "./dist",
+		"incremental": true,
+		"tsBuildInfoFile": "./tsconfig.tsbuildinfo",
+		"allowJs": false,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"strict": false,
+		"strictPropertyInitialization": false,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"noImplicitReturns": false,
+		"noFallthroughCasesInSwitch": true,
+		"paths": {
+			"@packages/entities": ["./packages/entities/index.ts"],
+			"@packages/entities/*": ["./packages/entities/src/*"],
+			"@packages/dto": ["./packages/dto/index.ts"],
+			"@packages/dto/*": ["./packages/dto/src/*"],
+			"@packages/core": ["./packages/core/index.ts"],
+			"@packages/core/*": ["./packages/core/src/*"],
+			"@packages/config": ["./packages/config/index.ts"],
+			"@packages/config/*": ["./packages/config/src/*"],
+			"@packages/novu": ["./packages/novu/index.ts"],
+			"@packages/novu/*": ["./packages/novu/src/*"],
+			"@packages/core-providers": [
+				"./packages/job-providers/common/index.ts"
+			],
+			"@packages/core-providers/*": [
+				"./packages/job-providers/common/src/*"
+			],
+			"@packages/ever-jobs-client": [
+				"./packages/ever-jobs-client/index.ts"
+			],
+			"@packages/ever-jobs-client/*": ["./packages/ever-jobs-client/src/*"],
+			"@packages/provider-ever-jobs": [
+				"./packages/job-providers/provider-ever-jobs/index.ts"
+			],
+			"@packages/provider-ever-jobs/*": [
+				"./packages/job-providers/provider-ever-jobs/src/*"
+			],
+			"@packages/provider-db": [
+				"./packages/job-providers/provider-db/index.ts"
+			],
+			"@packages/provider-db/*": [
+				"./packages/job-providers/provider-db/src/*"
+			],
+			"@packages/provider-upwork": [
+				"./packages/job-providers/provider-upwork/index.ts"
+			],
+			"@packages/provider-upwork/*": [
+				"./packages/job-providers/provider-upwork/src/*"
+			],
+			"@packages/plugin": ["./packages/plugin/index.ts"],
+			"@packages/plugin/*": ["./packages/plugin/src/*"],
+
+			"@packages/ai": ["./packages/ai/index.ts"],
+			"@packages/ai/*": ["./packages/ai/src/*"],
+			"@packages/auth": ["./packages/auth/index.ts"],
+			"@packages/auth/*": ["./packages/auth/src/*"],
+			"@packages/automationTask": ["./packages/automation-task/index.ts"],
+			"@packages/automationTask/*": ["./packages/automation-task/src/*"],
+			"@packages/crawler": ["./packages/crawler/index.ts"],
+			"@packages/crawler/*": ["./packages/crawler/src/*"],
+			"@packages/dashboard": ["./packages/dashboard/index.ts"],
+			"@packages/dashboard/*": ["./packages/dashboard/src/*"],
+			"@packages/employee": ["./packages/employee/index.ts"],
+			"@packages/employee/*": ["./packages/employee/src/*"],
+			"@packages/employeeJobApplication": [
+				"./packages/employee-job-application/index.ts"
+			],
+			"@packages/employeeJobApplication/*": [
+				"./packages/employee-job-application/src/*"
+			],
+			"@packages/employeeJobPost": [
+				"./packages/employee-job-post/index.ts"
+			],
+			"@packages/employeeJobPost/*": ["./packages/employee-job-post/src/*"],
+			"@packages/jobSearchCriteria": ["./packages/job-search-criteria/index.ts"],
+			"@packages/jobSearchCriteria/*": ["./packages/job-search-criteria/src/*"],
+			"@packages/health": ["./packages/health/index.ts"],
+			"@packages/health/*": ["./packages/health/src/*"],
+			"@packages/jobPost": ["./packages/job-post/index.ts"],
+			"@packages/jobPost/*": ["./packages/job-post/src/*"],
+			"@packages/seeds": ["./packages/seeds/index.ts"],
+			"@packages/seeds/*": ["./packages/seeds/src/*"],
+			"@packages/sourceConfig": ["./packages/source-config/index.ts"],
+			"@packages/sourceConfig/*": ["./packages/source-config/src/*"],
+			"@packages/tenant": ["./packages/tenant/index.ts"],
+			"@packages/tenant/*": ["./packages/tenant/src/*"],
+			"@packages/tenantApiKey": ["./packages/tenant-api-key/index.ts"],
+			"@packages/tenantApiKey/*": ["./packages/tenant-api-key/src/*"],
+			"@packages/trigger": ["./packages/trigger/index.ts"],
+			"@packages/trigger/*": ["./packages/trigger/src/*"],
+			"@packages/ops": ["./packages/ops/index.ts"],
+			"@packages/ops/*": ["./packages/ops/src/*"],
+			"@packages/prompts": ["./packages/prompts/index.ts"],
+			"@packages/prompts/*": ["./packages/prompts/src/*"],
+			"@packages/user": ["./packages/user/index.ts"],
+			"@packages/user/*": ["./packages/user/src/*"]
+		}
+	},
+	"exclude": ["node_modules", "dist", ".build"]
+}

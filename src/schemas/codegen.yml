@@ -1,0 +1,8 @@
+schema: ./src/schemas/schema.graphql
+documents: ./src/schemas/queries/*.graphql
+generates:
+  ./sdk/gauzy-ai-sdk.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node

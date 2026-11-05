@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [develop, stage, master]
+  pull_request:
+    branches: [develop, stage, master]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: Lint, Typecheck, Build, Test
+    # Pull requests from forks run contributor-controlled code (dependency scripts, tests): they go to
+    # GitHub-hosted runners. The internal ARC runner is reserved for pushes and same-repository PRs.
+    runs-on: ${{ (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository) && 'ubuntu-latest' || vars.RUNNER_LINUX_X64_4 || 'ubuntu-latest' }}
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      # Self-hosted runners may use an npm registry mirror (VERDACCIO_REGISTRY repository variable); the edit
+      # is local to this checkout and reset first so a previous run cannot leak into this one.
+      - name: Use the internal npm cache (self-hosted runners)
+        if: ${{ runner.environment != 'github-hosted' && vars.VERDACCIO_REGISTRY != '' }}
+        env:
+          VERDACCIO_REGISTRY: ${{ vars.VERDACCIO_REGISTRY }}
+        run: |
+          git checkout -- yarn.lock
+          printf 'registry "%s"\n' "$VERDACCIO_REGISTRY" >> "$HOME/.yarnrc"
+          sed -i "s|https://registry.yarnpkg.com|${VERDACCIO_REGISTRY%/}|g; s|https://registry.npmjs.org|${VERDACCIO_REGISTRY%/}|g" yarn.lock
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --network-timeout 600000
+
+      - name: Restore the lockfile
+        if: always()
+        run: git checkout -- yarn.lock
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typecheck
+        run: npx tsc -p tsconfig.spec.json --noEmit
+
+      # Same command as the Docker image build: nest build, then the GraphQL SDK generation (ts-node
+      # boots the schema module), which type-checks with a different program than `nest build`.
+      - name: Build (API + GraphQL SDK)
+        run: yarn build
+
+      - name: Unit tests
+        run: yarn test --ci
+
+      # Real PostgreSQL (embedded, same major as production): migrations, schema parity with the entities.
+      - name: Migration tests (embedded PostgreSQL)
+        run: node scripts/with-postgres.mjs -- yarn test:e2e:migrations --ci
+
+      - name: Boot check (sql.js)
+        shell: bash
+        run: |
+          DB_TYPE=sqljs DB_SYNCHRONIZE=true IS_NOT_SLS=true NODE_ENV=production node dist/main.js > boot.log 2>&1 &
+          PID=$!
+          for i in $(seq 1 60); do
+            code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3005/api/health || true)
+            [ "$code" = "200" ] && break
+            kill -0 $PID 2>/dev/null || break
+            sleep 2
+          done
+          kill $PID 2>/dev/null || true
+          if [ "$code" != "200" ]; then echo "API did not boot (health=$code)"; tail -50 boot.log; exit 1; fi
+          echo "API booted: /api/health 200"

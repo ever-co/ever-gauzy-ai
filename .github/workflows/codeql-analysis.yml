@@ -1,0 +1,46 @@
+name: 'CodeQL'
+
+on:
+    push:
+        branches: [develop, stage, master]
+    pull_request:
+        # The branches below must be a subset of the branches above
+        branches: [develop, stage, master]
+
+concurrency:
+    group: ${{ github.ref }}-${{ github.workflow }}
+    cancel-in-progress: true
+
+jobs:
+    analyze:
+        name: Analyze
+        # code scanning needs a public repository or GitHub Advanced Security
+        if: ${{ !github.event.repository.private }}
+        runs-on: ${{ vars.RUNNER_LINUX_X64_4 || 'ubuntu-latest' }}
+
+        strategy:
+            fail-fast: false
+            matrix:
+                language: ['javascript']
+
+        permissions:
+            security-events: write
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+
+            - name: Initialize CodeQL
+              uses: github/codeql-action/init@v3
+              with:
+                  languages: ${{ matrix.language }}
+
+            - name: Autobuild
+              uses: github/codeql-action/autobuild@v3
+
+            #- run: |
+            #   make bootstrap
+            #   make release
+
+            - name: Perform CodeQL Analysis
+              uses: github/codeql-action/analyze@v3

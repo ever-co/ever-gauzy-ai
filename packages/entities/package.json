@@ -1,0 +1,22 @@
+{
+	"name": "@ever-gauzy-ai/entities",
+	"version": "0.1.0",
+	"description": "TypeORM entities of the Gauzy AI database: tenants, API keys, organizations, users, employees, search criteria, job posts, matches, applications, automation tasks and source configurations.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/entities"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"entities",
+		"typeorm",
+		"data-model"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

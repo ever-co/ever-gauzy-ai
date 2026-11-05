@@ -1,0 +1,22 @@
+{
+	"name": "@ever-gauzy-ai/job-providers-common",
+	"version": "0.1.0",
+	"description": "Job provider contract of Gauzy AI: the IJobProvider interface, SearchCriterion, LivenessResult and the JOB_PROVIDERS_TOKEN injection token.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/job-providers/common"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"job-providers",
+		"interfaces",
+		"contract"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

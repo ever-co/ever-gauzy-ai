@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/crawler",
+	"version": "0.1.0",
+	"description": "Job crawler of Gauzy AI: runs every employee's search criteria against the enabled job sources, stores the results through CQRS and verifies stored postings for liveness.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/crawler"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"crawler",
+		"jobs",
+		"cqrs",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

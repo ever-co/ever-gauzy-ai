@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/tenant",
+	"version": "0.1.0",
+	"description": "Tenants of Gauzy AI: read-only GraphQL access to the caller's own tenant and the nestjs-query authorizers that scope every tenant-owned type.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/tenant"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"tenant",
+		"multi-tenant",
+		"authorizer",
+		"graphql"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

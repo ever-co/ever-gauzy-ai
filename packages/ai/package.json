@@ -1,0 +1,25 @@
+{
+	"name": "@ever-gauzy-ai/ai",
+	"version": "0.1.0",
+	"description": "AI functions of Gauzy AI: job-employee match scoring, proposal and screening-answer generation (OpenRouter via the Vercel AI SDK) and screenshot analysis (OpenAI vision).",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/ai"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"ai",
+		"openrouter",
+		"openai",
+		"scoring",
+		"proposals",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

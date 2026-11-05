@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/job-provider-db",
+	"version": "0.1.0",
+	"description": "Gauzy AI job source \"source-db\": recently stored job posts offered back to the crawler without external requests.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/job-providers/provider-db"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"job-provider",
+		"source-db",
+		"plugin",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

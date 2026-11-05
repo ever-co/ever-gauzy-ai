@@ -1,0 +1,16 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"rootDir": ".",
+		"module": "commonjs",
+		"verbatimModuleSyntax": false,
+		"isolatedModules": false,
+		"noEmit": false,
+		"sourceMap": false
+	},
+	"include": ["typeorm.config.ts", "scripts/**/*.ts", "packages/**/*.ts"],
+	"ts-node": {
+		"transpileOnly": true,
+		"require": ["tsconfig-paths/register"]
+	}
+}

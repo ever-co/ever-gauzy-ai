@@ -1,0 +1,22 @@
+{
+	"name": "@ever-gauzy-ai/trigger",
+	"version": "0.1.0",
+	"description": "Trigger.dev integration of Gauzy AI: configures the SDK when Trigger.dev scheduling is enabled so the API can enqueue event tasks.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/trigger"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"trigger.dev",
+		"scheduling",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

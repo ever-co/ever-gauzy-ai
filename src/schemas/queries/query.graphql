@@ -1,0 +1,348 @@
+query employeeJobPosts(
+	$after: ConnectionCursor!
+	$first: Int!
+	$filter: EmployeeJobPostFilter!
+	$sorting: [EmployeeJobPostSort!]
+) {
+	employeeJobPosts(
+		paging: { after: $after, first: $first }
+		filter: $filter
+		sorting: $sorting
+	) {
+		totalCount
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		edges {
+			node {
+				id
+				isApplied
+				appliedDate
+				createdAt
+				updatedAt
+				isActive
+				isArchived
+				employeeId
+				employee {
+					id
+					externalEmployeeId
+					bio
+					skillsSummary
+					preferredRate
+					experienceSummary
+				}
+				providerCode
+				providerJobId
+				jobDateCreated
+				jobStatus
+				jobType
+				jobPostId
+				jobPost {
+					id
+					providerCode
+					providerJobId
+					title
+					description
+					jobDateCreated
+					jobStatus
+					jobType
+					url
+					budget
+					duration
+					workload
+					skills
+					category
+					subcategory
+					country
+					clientFeedback
+					clientReviewsCount
+					clientJobsPosted
+					clientPastHires
+					clientPaymentVerificationStatus
+				}
+				matchScore
+				budgetFit
+				recommendedAction
+				explanation
+				modelUsed
+				scoredAt
+			}
+		}
+	}
+}
+
+query employeeJobPostsByEmployeeIdJobPostId(
+	$employeeIdFilter: String!
+	$jobPostIdFilter: String!
+) {
+	employeeJobPosts(
+		filter: {
+			employeeId: { eq: $employeeIdFilter }
+			jobPostId: { eq: $jobPostIdFilter }
+		}
+	) {
+		edges {
+			node {
+				id
+				isActive
+				isArchived
+			}
+		}
+	}
+}
+
+query employee {
+	employees {
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		edges {
+			node {
+				id
+				externalEmployeeId
+				firstName
+				lastName
+			}
+		}
+	}
+}
+
+query employeeByExternalEmployeeId($externalEmployeeIdFilter: String!) {
+	employees(
+		filter: { externalEmployeeId: { eq: $externalEmployeeIdFilter } }
+	) {
+		edges {
+			node {
+				id
+				externalEmployeeId
+			}
+		}
+		totalCount
+	}
+}
+
+query employeeByName($firstNameFilter: String!, $lastNameFilter: String!) {
+	employees(
+		filter: {
+			firstName: { eq: $firstNameFilter }
+			lastName: { eq: $lastNameFilter }
+		}
+	) {
+		edges {
+			node {
+				id
+				firstName
+				lastName
+				externalEmployeeId
+			}
+		}
+		totalCount
+	}
+}
+
+mutation updateOneEmployee($input: UpdateOneEmployeeInput!) {
+	updateOneEmployee(input: $input) {
+		externalEmployeeId
+		isActive
+		isArchived
+		firstName
+		lastName
+	}
+}
+
+mutation updateOneEmployeeJobPost($input: UpdateOneEmployeeJobPostInput!) {
+	updateOneEmployeeJobPost(input: $input) {
+		employeeId
+		jobPostId
+		isActive
+		isArchived
+		isApplied
+		appliedDate
+	}
+}
+
+query jobPosts($providerCodeFilter: String!, $providerJobIdFilter: String!) {
+	jobPosts(
+		filter: {
+			providerCode: { eq: $providerCodeFilter }
+			providerJobId: { eq: $providerJobIdFilter }
+		}
+	) {
+		edges {
+			node {
+				id
+				isActive
+				isArchived
+			}
+		}
+	}
+}
+
+query tenantByExternalTenantId($externalTenantFilter: String!) {
+	tenants(filter: { externalTenantId: { eq: $externalTenantFilter } }) {
+		edges {
+			node {
+				id
+				name
+				externalTenantId
+			}
+		}
+		totalCount
+	}
+}
+
+# ─── Browse Jobs ───────────────────────────────────────
+
+query browseJobMatches(
+	$employeeId: ID!
+	$minScore: Int
+	$maxScore: Int
+	$budgetFit: String
+	$recommendedAction: String
+	$providerCode: String
+	$isApplied: Boolean
+	$first: Int
+	$offset: Int
+	$sortBy: BrowseJobsSortBy
+) {
+	browseJobMatches(
+		employeeId: $employeeId
+		minScore: $minScore
+		maxScore: $maxScore
+		budgetFit: $budgetFit
+		recommendedAction: $recommendedAction
+		providerCode: $providerCode
+		isApplied: $isApplied
+		first: $first
+		offset: $offset
+		sortBy: $sortBy
+	) {
+		totalCount
+		hasMore
+		items {
+			id
+			employeeId
+			jobPostId
+			providerCode
+			matchScore
+			budgetFit
+			recommendedAction
+			explanation
+			modelUsed
+			scoredAt
+			isApplied
+			appliedDate
+			isActive
+			isArchived
+			createdAt
+			employee {
+				id
+				externalEmployeeId
+				firstName
+				lastName
+				bio
+				skillsSummary
+				preferredRate
+				experienceSummary
+			}
+			jobPost {
+				id
+				title
+				description
+				providerCode
+				providerJobId
+				url
+				budget
+				duration
+				workload
+				skills
+				category
+				subcategory
+				country
+				jobDateCreated
+				jobStatus
+				jobType
+			}
+		}
+	}
+}
+
+# ─── Dashboard Stats ───────────────────────────────────
+
+query dashboardStats($employeeId: ID, $tenantId: ID) {
+	dashboardStats(employeeId: $employeeId, tenantId: $tenantId) {
+		totalMatches
+		totalApplications
+		avgMatchScore
+		matchesToday
+		applicationsSentToday
+		topScoringMatch {
+			jobTitle
+			matchScore
+			providerCode
+		}
+		scoreDistribution {
+			range
+			count
+		}
+		recentActivity {
+			type
+			description
+			timestamp
+		}
+	}
+}
+
+# ─── Health Check ──────────────────────────────────────
+
+query healthCheck {
+	healthCheck {
+		status
+		uptime
+		version
+		dbConnected
+		timestamp
+	}
+}
+
+# ─── Employee Profile ─────────────────────────────────
+
+mutation updateEmployeeProfile($id: ID!, $input: UpdateEmployeeProfileInput!) {
+	updateEmployeeProfile(id: $id, input: $input) {
+		id
+		externalEmployeeId
+		firstName
+		lastName
+		bio
+		skillsSummary
+		preferredRate
+		experienceSummary
+	}
+}
+
+# ─── Re-score / Dismiss ───────────────────────────────
+
+mutation rescoreMatch($id: ID!) {
+	rescoreMatch(id: $id) {
+		id
+		matchScore
+		budgetFit
+		recommendedAction
+		explanation
+		modelUsed
+		scoredAt
+	}
+}
+
+mutation dismissMatch($id: ID!) {
+	dismissMatch(id: $id) {
+		id
+		isArchived
+	}
+}

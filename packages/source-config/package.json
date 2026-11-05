@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/source-config",
+	"version": "0.1.0",
+	"description": "Per-tenant source configurations of Gauzy AI: OAuth2 credentials and settings per job source over GraphQL, with secret masking and tenant-scoped lookups for providers.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/source-config"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"source-config",
+		"credentials",
+		"graphql",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

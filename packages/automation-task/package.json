@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/automation-task",
+	"version": "0.1.0",
+	"description": "Automation task queue of Gauzy AI: commands prepared for the employee's client-side companion, with REST/GraphQL CRUD and CQRS creation.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/automation-task"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"automation",
+		"tasks",
+		"cqrs",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

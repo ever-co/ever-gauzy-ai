@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/job-provider-ever-jobs",
+	"version": "0.1.0",
+	"description": "Gauzy AI job source \"ever-jobs\": job postings from the boards the Ever Jobs API aggregates, mapped to JobPost entities, with a liveness check.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/job-providers/provider-ever-jobs"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"job-provider",
+		"ever-jobs",
+		"plugin",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

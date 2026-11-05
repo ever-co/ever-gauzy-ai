@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/dashboard",
+	"version": "0.1.0",
+	"description": "Dashboard statistics of Gauzy AI: match and application totals, score distribution and recent activity per tenant or employee over GraphQL.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/dashboard"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"dashboard",
+		"statistics",
+		"graphql",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

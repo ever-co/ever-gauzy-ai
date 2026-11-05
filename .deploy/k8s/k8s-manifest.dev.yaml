@@ -1,0 +1,181 @@
+kind: Service
+apiVersion: v1
+metadata:
+    name: gauzy-ai-dev-api-lb
+spec:
+    type: ClusterIP
+    selector:
+        app: gauzy-ai-dev-api
+    ports:
+        - name: http
+          protocol: TCP
+          port: 80
+          targetPort: 3005
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+    name: gauzy-ai-dev-api-ingress
+    namespace: default
+    annotations:
+        nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: apidev.gauzy.ai
+          http:
+              paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                        service:
+                            name: gauzy-ai-dev-api-lb
+                            port:
+                                number: 80
+    tls:
+        - hosts:
+              - apidev.gauzy.ai
+          secretName: apidev.gauzy.ai-tls
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: gauzy-ai-dev-api
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: gauzy-ai-dev-api
+    template:
+        metadata:
+            labels:
+                app: gauzy-ai-dev-api
+        spec:
+            containers:
+                - name: gauzy-ai-dev-api
+                  image: registry.digitalocean.com/ever/gauzy-ai-api-dev:latest
+                  resources:
+                      requests:
+                          cpu: '50m'
+                          memory: '192Mi'
+                  env:
+                      - name: API_HOST
+                        value: 0.0.0.0
+                      - name: DEMO
+                        value: 'false'
+                      - name: NODE_ENV
+                        value: 'development'
+                      - name: LOG_LEVEL
+                        value: 'info'
+                      - name: CLOUD_PROVIDER
+                        value: '$CLOUD_PROVIDER'
+                      - name: SENTRY_DSN
+                        value: '$SENTRY_DSN'
+                      - name: SENTRY_HTTP_TRACING_ENABLED
+                        value: 'false'
+                      - name: SENTRY_POSTGRES_TRACKING_ENABLED
+                        value: 'false'
+                      - name: API_BASE_URL
+                        value: 'https://apidev.gauzy.ai'
+                      - name: DB_URI
+                        value: '$DB_URI'
+                      - name: DB_HOST
+                        value: '$DB_HOST'
+                      - name: DB_SSL_MODE
+                        value: '$DB_SSL_MODE'
+                      - name: DB_CA_CERT
+                        value: '$DB_CA_CERT'
+                      - name: DB_USER
+                        value: '$DB_USER'
+                      - name: DB_PASS
+                        value: '$DB_PASS'
+                      - name: DB_TYPE
+                        value: '$DB_TYPE'
+                      - name: DB_NAME
+                        value: '$DB_NAME'
+                      - name: DB_PORT
+                        value: '$DB_PORT'
+                      - name: AWS_ACCESS_KEY_ID
+                        value: '$AWS_ACCESS_KEY_ID'
+                      - name: AWS_SECRET_ACCESS_KEY
+                        value: '$AWS_SECRET_ACCESS_KEY'
+                      - name: AWS_REGION
+                        value: '$AWS_REGION'
+                      - name: AWS_S3_BUCKET
+                        value: '$AWS_S3_BUCKET'
+                      - name: WASABI_ACCESS_KEY_ID
+                        value: '$WASABI_ACCESS_KEY_ID'
+                      - name: WASABI_SECRET_ACCESS_KEY
+                        value: '$WASABI_SECRET_ACCESS_KEY'
+                      - name: WASABI_REGION
+                        value: '$WASABI_REGION'
+                      - name: WASABI_SERVICE_URL
+                        value: '$WASABI_SERVICE_URL'
+                      - name: WASABI_S3_BUCKET
+                        value: '$WASABI_S3_BUCKET'
+                      - name: EXPRESS_SESSION_SECRET
+                        value: '$EXPRESS_SESSION_SECRET'
+                      - name: JWT_SECRET
+                        value: '$JWT_SECRET'
+                      - name: EVER_ID_ISSUER_URL
+                        value: '$EVER_ID_ISSUER_URL'
+                      - name: EVER_ID_AUDIENCE
+                        value: '$EVER_ID_AUDIENCE'
+                      - name: JWT_REFRESH_TOKEN_SECRET
+                        value: '$JWT_REFRESH_TOKEN_SECRET'
+                      - name: JWT_REFRESH_TOKEN_EXPIRATION_TIME
+                        value: '$JWT_REFRESH_TOKEN_EXPIRATION_TIME'
+                      - name: MAIL_FROM_ADDRESS
+                        value: '$MAIL_FROM_ADDRESS'
+                      - name: MAIL_HOST
+                        value: '$MAIL_HOST'
+                      - name: MAIL_PORT
+                        value: '$MAIL_PORT'
+                      - name: MAIL_USERNAME
+                        value: '$MAIL_USERNAME'
+                      - name: MAIL_PASSWORD
+                        value: '$MAIL_PASSWORD'
+                      - name: UPWORK_CALLBACK_URL
+                        value: '$UPWORK_CALLBACK_URL'
+                      - name: FILE_PROVIDER
+                        value: '$FILE_PROVIDER'
+                      - name: UNLEASH_APP_NAME
+                        value: '$UNLEASH_APP_NAME'
+                      - name: UNLEASH_API_URL
+                        value: '$UNLEASH_API_URL'
+                      - name: UNLEASH_INSTANCE_ID
+                        value: '$UNLEASH_INSTANCE_ID'
+                      - name: UNLEASH_REFRESH_INTERVAL
+                        value: '$UNLEASH_REFRESH_INTERVAL'
+                      - name: UNLEASH_METRICS_INTERVAL
+                        value: '$UNLEASH_METRICS_INTERVAL'
+                      - name: UNLEASH_API_KEY
+                        value: '$UNLEASH_API_KEY'
+                      - name: OPENAI_API_KEY
+                        value: '$OPENAI_API_KEY'
+                      - name: OPENAI_ORGANIZATION_ID
+                        value: '$OPENAI_ORGANIZATION_ID'
+                      - name: OPENAI_MODEL
+                        value: '$OPENAI_MODEL'
+                      - name: OPENAI_API_KEY_CURRENT
+                        value: '$OPENAI_API_KEY_CURRENT'
+                      - name: OPENAI_ORGANIZATION_ID_CURRENT
+                        value: '$OPENAI_ORGANIZATION_ID_CURRENT'
+                      - name: OPENAI_MODEL_CURRENT
+                        value: '$OPENAI_MODEL_CURRENT'
+                      - name: IS_DISABLE_AUTH
+                        value: '$IS_DISABLE_AUTH'
+                      - name: JITSU_SERVER_URL
+                        value: '$JITSU_SERVER_URL'
+                      - name: JITSU_SERVER_WRITE_KEY
+                        value: '$JITSU_SERVER_WRITE_KEY'
+                      - name: OTEL_ENABLED
+                        value: '$OTEL_ENABLED'
+                      - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+                        value: '$OTEL_EXPORTER_OTLP_TRACES_ENDPOINT'
+                      - name: OTEL_EXPORTER_OTLP_HEADERS
+                        value: '$OTEL_EXPORTER_OTLP_HEADERS'
+
+                  ports:
+                      - containerPort: 3005
+                        protocol: TCP

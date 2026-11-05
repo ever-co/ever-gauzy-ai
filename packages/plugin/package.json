@@ -1,0 +1,22 @@
+{
+	"name": "@ever-gauzy-ai/plugin",
+	"version": "0.1.0",
+	"description": "Plugin contract of Gauzy AI: definePlugin, PluginsModule, PluginRegistry, the GAUZY_AI_PLUGINS_DISABLED switch and GET /api/plugins.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/plugin"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"plugins",
+		"registry",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

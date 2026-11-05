@@ -1,0 +1,22 @@
+{
+	"name": "@ever-gauzy-ai/seeds",
+	"version": "0.1.0",
+	"description": "Database seeding for Gauzy AI development and demos: sample employees and job search criteria, run at start-up on an empty database or via yarn seed.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/seeds"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"seeds",
+		"development",
+		"typeorm"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

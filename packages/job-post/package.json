@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/job-post",
+	"version": "0.1.0",
+	"description": "Job-post catalog of Gauzy AI: shared JobPost rows from every source, REST/GraphQL CRUD, the CQRS upsert that starts matching, and the liveness check.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/job-post"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"job-posts",
+		"catalog",
+		"cqrs",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

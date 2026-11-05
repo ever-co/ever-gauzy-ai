@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/ever-jobs-client",
+	"version": "0.1.0",
+	"description": "HTTP client for the Ever Jobs API (job search and analysis) with the TypeScript interfaces that mirror its DTOs.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/ever-jobs-client"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"ever-jobs",
+		"http-client",
+		"jobs",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

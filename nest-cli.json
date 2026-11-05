@@ -1,0 +1,35 @@
+{
+	"$schema": "https://json.schemastore.org/nest-cli",
+	"language": "ts",
+	"collection": "@nestjs/schematics",
+	"sourceRoot": "src",
+	"compilerOptions": {
+		"plugins": [
+			"@nestjs/graphql"
+		],
+		"assets": [],
+		"deleteOutDir": true,
+		"tsConfigPath": "tsconfig.build.json",
+		"builder": "rspack"
+	},
+	"projects": {
+		"job-providers": {
+			"type": "library",
+			"root": "packages/job-providers/common",
+			"entryFile": "index",
+			"sourceRoot": "packages/job-providers/common/src"
+		},
+		"ever-jobs-client": {
+			"type": "library",
+			"root": "packages/ever-jobs-client",
+			"entryFile": "index",
+			"sourceRoot": "packages/ever-jobs-client/src"
+		},
+		"provider-ever-jobs": {
+			"type": "library",
+			"root": "packages/job-providers/provider-ever-jobs",
+			"entryFile": "index",
+			"sourceRoot": "packages/job-providers/provider-ever-jobs/src"
+		}
+	}
+}

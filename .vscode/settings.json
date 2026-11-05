@@ -1,0 +1,21 @@
+{
+	"deepscan.enable": true,
+	"editor.formatOnSave": true,
+	"cSpell.words": [
+		"codegen",
+		"cqrs",
+		"microservices",
+		"nestjs",
+		"nestjsx",
+		"OPENAI",
+		"postgres",
+		"QLISO",
+		"typeorm",
+		"upwork"
+	],
+	"files.exclude": {
+		"**/dist": true,
+		"**/.build": true
+	},
+	"git.ignoreLimitWarning": true
+}

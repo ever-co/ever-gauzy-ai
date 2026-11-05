@@ -1,0 +1,24 @@
+{
+	"name": "@ever-gauzy-ai/employee-job-post",
+	"version": "0.1.0",
+	"description": "Job matches of Gauzy AI: employee-to-job-post records with AI scores, the matching step after a crawl, and the browse/rescore/dismiss API with subscriptions.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/employee-job-post"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"matching",
+		"scoring",
+		"graphql",
+		"subscriptions",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

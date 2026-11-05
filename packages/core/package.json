@@ -1,0 +1,23 @@
+{
+	"name": "@ever-gauzy-ai/core",
+	"version": "0.1.0",
+	"description": "Shared building blocks of Gauzy AI: request context, tenant scoping helpers, base entities and DTOs, tenant-aware CRUD service, nestjs-query tenant hooks and the public-URL request guard.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/core"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"core",
+		"multi-tenant",
+		"request-context",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

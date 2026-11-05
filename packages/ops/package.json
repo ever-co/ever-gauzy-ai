@@ -1,0 +1,24 @@
+{
+	"name": "@ever-gauzy-ai/ops",
+	"version": "0.1.0",
+	"description": "Operations of Gauzy AI: cross-tenant maintenance jobs (daily digest, stale-task cleanup, pending-match scoring), the /api/ops service-token endpoints and the in-process cron scheduler.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/ops"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"ops",
+		"scheduler",
+		"cron",
+		"jobs",
+		"nestjs"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}

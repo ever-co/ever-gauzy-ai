@@ -1,0 +1,22 @@
+{
+	"name": "@ever-gauzy-ai/prompts",
+	"version": "0.1.0",
+	"description": "Prompt registry of Gauzy AI: prompts versioned in Langfuse with the built-in catalog as fallback, plus AI SDK telemetry helpers.",
+	"private": true,
+	"license": "AGPL-3.0",
+	"homepage": "https://gauzy.ai",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy-ai.git",
+		"directory": "packages/prompts"
+	},
+	"keywords": [
+		"gauzy",
+		"gauzy-ai",
+		"prompts",
+		"langfuse",
+		"ai"
+	],
+	"types": "index.ts",
+	"source": "index.ts"
+}
