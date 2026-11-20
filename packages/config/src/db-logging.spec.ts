@@ -35,19 +35,21 @@ describe('db-logging (TypeORM logging from DB_LOGGING / DB_LOGGER)', () => {
 
 	it('takes a comma list of TypeORM levels', () => {
 		expect(dbLogging({ DB_LOGGING: 'error' })).toEqual(['error']);
-		expect(dbLogging({ DB_LOGGING: ' query , error,schema,error ' })).toEqual([
-			'query',
-			'error',
-			'schema',
-		]);
+		expect(
+			dbLogging({ DB_LOGGING: ' query , error,schema,error ' }),
+		).toEqual(['query', 'error', 'schema']);
 		expect(() => dbLogging({ DB_LOGGING: 'error,verbose' })).toThrow(
 			/Invalid DB_LOGGING "error,verbose": unknown level\(s\) verbose/,
 		);
 	});
 
 	it('takes any TypeORM built-in logger by name and refuses others', () => {
-		expect(dbLogger({ DB_LOGGER: 'simple-console' })).toBe('simple-console');
-		expect(dbLogger({ DB_LOGGER: 'Formatted-Console' })).toBe('formatted-console');
+		expect(dbLogger({ DB_LOGGER: 'simple-console' })).toBe(
+			'simple-console',
+		);
+		expect(dbLogger({ DB_LOGGER: 'Formatted-Console' })).toBe(
+			'formatted-console',
+		);
 		expect(dbLogger({ DB_LOGGER: 'debug' })).toBe('debug');
 		expect(() => dbLogger({ DB_LOGGER: 'stdout' })).toThrow(
 			/Invalid DB_LOGGER "stdout"/,
