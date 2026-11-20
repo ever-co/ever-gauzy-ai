@@ -20,6 +20,7 @@ import { EntitySubscriberInterface } from 'typeorm';
 import { EmployeeSubscriber } from '@packages/employee/employee.subscriber';
 import { UserSubscriber } from '@packages/user/user.subscriber';
 import { Migrations } from './migrations';
+import { dbLoggingOptions } from './db-logging';
 
 /**
  * All entities used in the application.
@@ -63,8 +64,8 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
 					type: dbType,
 					autoSave: true,
 					location: 'gauzy-ai.db',
-					logging: 'all',
-					logger: 'file', // Removes console logging, instead logs all queries in a file ormlogs.log
+					// DB_LOGGING / DB_LOGGER, default errors and warnings to stdout (see ./db-logging.ts).
+					...dbLoggingOptions(),
 					entities: Entities,
 					subscribers: coreSubscribers as Array<Type<EntitySubscriberInterface>>,
 					// TypeORM 1.x throws on `undefined` in a where clause; keep the 0.3 behavior (ignore the property).
@@ -82,8 +83,8 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
 				options = {
 					type: dbType,
 					database: dbPath,
-					logging: 'all',
-					logger: 'file', // Removes console logging, instead logs all queries in a file ormlogs.log
+					// DB_LOGGING / DB_LOGGER, default errors and warnings to stdout (see ./db-logging.ts).
+					...dbLoggingOptions(),
 					entities: Entities,
 					subscribers: coreSubscribers as Array<Type<EntitySubscriberInterface>>,
 					// TypeORM 1.x throws on `undefined` in a where clause; keep the 0.3 behavior (ignore the property).
@@ -123,8 +124,8 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
 					// TypeORM 1.x throws on `undefined` in a where clause; keep the 0.3 behavior (ignore the property).
 					invalidWhereValuesBehavior: { undefined: 'ignore' },
 					// autoLoadEntities: true, // Note: possible to use instead: entities: Entities,
-					logging: 'all',
-					logger: 'file', // Removes console logging, instead logs all queries in a file ormlogs.log
+					// DB_LOGGING / DB_LOGGER, default errors and warnings to stdout (see ./db-logging.ts).
+					...dbLoggingOptions(),
 					// The schema is owned by the migrations in ./migrations and applied at startup. `synchronize` stays
 					// available for local experiments only (DB_SYNCHRONIZE=true).
 					synchronize: process.env.DB_SYNCHRONIZE === 'true',
