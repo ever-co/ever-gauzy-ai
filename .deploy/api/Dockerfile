@@ -152,7 +152,7 @@ COPY --chown=node:node --from=build /srv/gauzy-ai/dist .
 
 RUN npm install pm2@4.5.1 -g && \
 	mkdir /import && chown node:node /import && \
-	touch ormlogs.log && chown node:node ormlogs.log && chown node:node wait && \
+	chown node:node wait && \
 	chmod +x wait && chown -R node:node ./
 
 # node:26 images no longer bundle Yarn (node:20 did); install Yarn classic so this stage keeps it.
