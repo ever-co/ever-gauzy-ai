@@ -23,15 +23,6 @@ export class SeedDataService {
 		private readonly employeeService: EmployeeService
 	) {}
 
-	/**
-	 * This config is applied only for `yarn seed:*` type calls because
-	 * that is when connection is created by this service itself.
-	 */
-	overrideDbConfig = {
-		logging: true,
-		logger: 'file', // Removes console logging, instead logs all queries in a file ormlogs.log
-	};
-
 	private async createConnection() {
 		if (this.connection?.isInitialized) {
 			return;
@@ -45,8 +36,8 @@ export class SeedDataService {
 			this.log(`CONNECTING TO DATABASE ...`);
 			const dbConnectOptions = await this.typeOrmConfigService.createTypeOrmOptions();
 			this.connection = new DataSource({
+				// Same logging as the application: DB_LOGGING / DB_LOGGER (see @packages/config db-logging).
 				...dbConnectOptions,
-				...this.overrideDbConfig,
 				entities: Entities,
 			} as DataSourceOptions);
 			await this.connection.initialize();
